@@ -372,7 +372,6 @@
                   min="0"
                   required
                 />
-              </div>
               <div class="form-group">
                 <label for="descripcion" class="form-label"
                   >Descripción del incidente</label
@@ -386,9 +385,14 @@
               </div>
               <div class="d-flex gap-2 flex-lg-row-reverse">
                 <button type="button" class="btn btn-danger" id="liveToastBtn">
-                  Guardar
+                  Registrar reporte
                 </button>
-                <button type="button" class="btn btn-secondary">
+
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
                   Cancelar
                 </button>
               </div>
@@ -399,21 +403,25 @@
         </div>
       </div>
     </div>
+
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
       <div
         id="liveToast"
-        class="toast"
+        class="toast align-items-center text-bg-success border-0"
         role="alert"
         aria-live="assertive"
         aria-atomic="true"
       >
-        <div class="toast-header">
-          <img src="..." class="rounded me-2" alt="..." />
-          <strong class="me-auto">Bootstrap</strong>
-          <small>11 mins ago</small>
-          <CloseButton dismiss="toast" />
+        <div class="d-flex">
+          <div class="toast-body">El reporte ha sido enviado</div>
+
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Cerrar"
+          ></button>
         </div>
-        <div class="toast-body">Hello, world! This is a toast message.</div>
       </div>
     </div>
 
@@ -423,12 +431,15 @@
       crossorigin="anonymous"
     ></script>
     <script src="snippets.js"></script>
+
     <script>
       const toastTrigger = document.getElementById("liveToastBtn");
       const toastLiveExample = document.getElementById("liveToast");
 
-      if (toastTrigger) {
-        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+      if (toastTrigger && toastLiveExample) {
+        const toastBootstrap =
+          bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+
         toastTrigger.addEventListener("click", () => {
           toastBootstrap.show();
         });
