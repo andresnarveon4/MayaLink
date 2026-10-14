@@ -1,8 +1,5 @@
-Aquí tienes el código completo de ambos archivos (index.html y style.css),
-incluyendo únicamente la parte que le toca a tu equipo (Equipo Chunhuhub): 1.
-index.html (Completo) HTML
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,31 +47,21 @@ index.html (Completo) HTML
       </section>
 
       <nav class="navigation shadow-sm px-3">
-        <a
-          href="#offcanvasTarifario"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasTarifario"
-          class="text-dark text-decoration-none fw-bold"
+        <a href="#" class="text-dark text-decoration-none fw-bold"
+          ><i class="bi bi-cash-stack ms-4 me-1 text-success"></i> Tarifario</a
         >
-          <i class="bi bi-cash-stack ms-4 me-1 text-success"></i> Tarifario
-        </a>
         <a href="#" class="text-dark text-decoration-none fw-bold">
-          <i class="bi bi-signpost-2 ms-4 me-1 text-light-emphasis"></i> Tramos
-        </a>
+          <i class="bi bi-signpost-2 ms-4 me-1 text-light-emphasis"></i>
+          Tramos</a
+        >
         <a href="#" class="text-dark text-decoration-none fw-bold">
           <i class="bi bi-building-fill ms-4 me-1 text-light-emphasis"></i>
-          Estaciones
-        </a>
-        <!-- ENLACE CONECTADO AL MODAL (EQUIPO CHUNHUHUB) -->
-        <a
-          href="#modalReportes"
-          data-bs-toggle="modal"
-          data-bs-target="#modalReportes"
-          class="text-dark text-decoration-none fw-bold"
+          Estaciones</a
         >
-          <i class="bi bi-shield-exclamation ms-4 me-1 text-danger"></i>
-          Reportes
-        </a>
+        <a href="#" class="text-dark text-decoration-none fw-bold"
+          ><i class="bi bi-shield-exclamation ms-4 me-1 text-danger"></i>
+          Reportes</a
+        >
       </nav>
 
       <section class="hero-alert shadow-sm">
@@ -150,36 +137,6 @@ index.html (Completo) HTML
               <i class="bi bi-search"></i> Consultar Tarifas oficiales
             </button>
           </div>
-          <div class="card-form">
-            <h2>Registro de Vehículo</h2>
-
-            <div class="form-group">
-              <label for="numero-placa">Número de Placa</label>
-              <input
-                type="text"
-                id="numero-placa"
-                name="numeroPlaca"
-                placeholder="Ej. ABC-1234"
-                pattern="[A-Za-z0-9\-]+"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="monto-cobrado">Monto Cobrado ($)</label>
-              <input
-                type="number"
-                id="monto-cobrado"
-                name="montoCobrado"
-                placeholder="0.00"
-                step="0.01"
-                min="0"
-                required
-              />
-            </div>
-
-            <button type="submit" class="btn-guardar">Guardar Cambios</button>
-          </div>
         </form>
       </main>
 
@@ -214,7 +171,7 @@ index.html (Completo) HTML
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          <div class="progress-bar bg-warning" style="width: 25%"></div>
+          <div class="progress-bar" style="width: 25%"></div>
         </div>
         <small class="text-muted d-block mt-1"
           >Afluencia moderada en estación</small
@@ -234,7 +191,7 @@ index.html (Completo) HTML
                 >Combi Colectiva (Ruta 1)</strong
               >
             </div>
-            <small class="badge bg-primary rounded-pill">$12.00 MXN</small>
+            <small class="badge bg-primary rounted-pill">$12.00 MXN</small>
           </li>
           <li
             class="list-group-item d-flex justify-content-between align-items-center px-0 py-2"
@@ -243,7 +200,7 @@ index.html (Completo) HTML
               <strong class="d-block text-dark">Taxi de sitio regulado</strong>
               <small class="text-muted">Bahía 3 Tarifa sujeta a zonas</small>
             </div>
-            <small class="badge bg-secondary rounded-pill">$52.00 MXN</small>
+            <small class="badge bg-secondary rounted-pill">$52.00 MXN</small>
           </li>
           <li
             class="list-group-item d-flex justify-content-between align-items-center px-0 py-2"
@@ -252,7 +209,7 @@ index.html (Completo) HTML
               <strong class="d-block text-dark">Enlace ADO Conecta</strong>
               <small class="text-muted">Directo a Bacalar Aeropuerto</small>
             </div>
-            <small class="badge bg-success rounded-pill">$85.00 MXN</small>
+            <small class="badge bg-success rounted-pill">$85.00 MXN</small>
           </li>
         </ul>
       </section>
@@ -266,140 +223,7 @@ index.html (Completo) HTML
       </footer>
     </div>
 
-    <!-- COMPONENTE OVERLAY / OFFCANVAS TARIFARIO -->
-    <div
-      class="offcanvas offcanvas-start"
-      tabindex="-1"
-      id="offcanvasTarifario"
-      aria-labelledby="offcanvasTarifarioLabel"
-    >
-      <div class="offcanvas-header bg-dark text-white">
-        <div>
-          <h5 class="offcanvas-title fw-bold" id="offcanvasTarifarioLabel">
-            Tarifario Oficial Chetumal
-          </h5>
-          <small class="text-white-50"
-            >Tarifas reguladas y vigentes para el tramo 7</small
-          >
-        </div>
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-
-      <div class="offcanvas-body">
-        <h6 class="fw-bold text-secondary mb-3">
-          Zonas Urbanas
-          <small class="text-muted d-block fw-normal"
-            >(Desde la estación del tren maya)</small
-          >
-        </h6>
-
-        <ul class="list-group list-group-flush mb-4">
-          <li
-            class="list-group-item d-flex justify-content-between align-items-center px-0 py-2"
-          >
-            <div>
-              <strong class="d-block text-dark">Zona 1</strong>
-              <small class="text-muted">Aeropuerto / Av. Insurgentes</small>
-            </div>
-            <span class="badge bg-primary rounded-pill">$40.00 MXN</span>
-          </li>
-          <li
-            class="list-group-item d-flex justify-content-between align-items-center px-0 py-2"
-          >
-            <div>
-              <strong class="d-block text-dark">Zona 2</strong>
-              <small class="text-muted">Centro Histórico / Explanada</small>
-            </div>
-            <span class="badge bg-success rounded-pill">$55.00 MXN</span>
-          </li>
-          <li
-            class="list-group-item d-flex justify-content-between align-items-center px-0 py-2"
-          >
-            <div>
-              <strong class="d-block text-dark">Zona 3</strong>
-              <small class="text-muted">Calderitas / Balnearios</small>
-            </div>
-            <span class="badge bg-info text-dark rounded-pill">$90.00 MXN</span>
-          </li>
-          <li
-            class="list-group-item d-flex justify-content-between align-items-center px-0 py-2"
-          >
-            <div>
-              <strong class="d-block text-dark">Zona Foránea</strong>
-              <small class="text-muted">Laguna Milagros (Huay-Pix)</small>
-            </div>
-            <span class="badge bg-warning text-dark rounded-pill"
-              >$110.00 MXN</span
-            >
-          </li>
-        </ul>
-
-        <div class="d-grid gap-2">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="offcanvas"
-          >
-            Entendido
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODAL DE REPORTES (CREADO POR EQUIPO CHUNHUHUB) -->
-    <div
-      class="modal fade"
-      id="modalReportes"
-      tabindex="-1"
-      aria-labelledby="modalReportesLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header bg-danger text-white">
-            <h5
-              class="modal-title fw-bold d-flex align-items-center"
-              id="modalReportesLabel"
-            >
-              <i class="bi bi-shield-exclamation me-2"></i> Reportes
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <!-- Los siguientes equipos agregarán sus campos aquí -->
-
-            <!-- Equipo Ignacio-Zaragoza-1 -->
-            <div class="mb-3">
-              <label for="descripcion" class="form-label"
-                >Descripción del incidente</label
-              >
-              <textarea
-                class="form-control"
-                id="descripcion"
-                rows="3"
-                placeholder="Describe el incidente"
-              ></textarea>
-            </div>
-
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-danger">Guardar</button>
-              <button type="button" class="btn btn-secondary">Cancelar</button>
-            </div>
-            <!-- Espacio para el siguiente equipo -->
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- COMPONENTE OVERLAY -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
