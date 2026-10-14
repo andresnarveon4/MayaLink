@@ -389,6 +389,7 @@ index.html (Completo) HTML
                   rows="3"
                   placeholder="Describe el incidente"
                 ></textarea>
+              </div>
               <div class="d-flex gap-2 flex-lg-row-reverse">
                 <button type="button" class="btn btn-danger" id="liveToastBtn">
                   Registrar reporte
@@ -406,87 +407,9 @@ index.html (Completo) HTML
 
             <!-- Espacio para el siguiente equipo -->
           </div>
-
-            <form id="formReporte">
-              <div class="mb-3">
-                <label for="descripcionIncidente" class="form-label">
-                  Descripción del incidente <span class="text-danger">*</span>
-                </label>
-                <textarea
-                class="form-control"
-                id="descripcionIncidente"
-                name="descripcionIncidente"
-                rows="4"
-                placeholder="Describe el incidente..."
-                required
-                ></textarea>
-              </div>
-              
-              <div class="d-flex justify-content-end gap-2">
-                <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal">
-                Cancelar
-              </button>
-              
-              <button type="submit" class="btn btn-danger">
-                Registrar reporte
-              </button>
-            </div>
-          </form>
-
         </div>
       </div>
     </div>
-  </div>
-  
-  <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-  crossorigin="anonymous"
-  ></script>
-  
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div
-    id="toastReporte"
-    class="toast align-items-center text-bg-success border-0"
-    role="alert"
-    aria-live="assertive"
-    aria-atomic="true"
-  >
-    <div class="d-flex">
-      <div class="toast-body">
-        El reporte ha sido enviado
-      </div>
-
-      <button
-        type="button"
-        class="btn-close btn-close-white me-2 m-auto"
-        data-bs-dismiss="toast"
-        aria-label="Cerrar"
-      ></button>
-    </div>
-  </div>
-</div>
-
-<script>
-  const formReporte = document.getElementById("formReporte");
-
-  formReporte.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    bootstrap.Modal.getOrCreateInstance(
-      document.getElementById("modalReportes")
-    ).hide();
-
-    bootstrap.Toast.getOrCreateInstance(
-      document.getElementById("toastReporte")
-    ).show();
-
-    formReporte.reset();
-  });
-</script>
 
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
       <div
