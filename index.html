@@ -1,7 +1,3 @@
-Aquí tienes el código completo de ambos archivos (index.html y style.css),
-incluyendo únicamente la parte que le toca a tu equipo (Equipo Chunhuhub): 1.
-index.html (Completo) HTML
-
 <!doctype html>
 <html lang="es">
   <head>
@@ -150,36 +146,6 @@ index.html (Completo) HTML
             <button type="button" class="btn btn-success py-2 fw-semibold">
               <i class="bi bi-search"></i> Consultar Tarifas oficiales
             </button>
-          </div>
-          <div class="card-form">
-            <h2>Registro de Vehículo</h2>
-
-            <div class="form-group">
-              <label for="numero-placa">Número de Placa</label>
-              <input
-                type="text"
-                id="numero-placa"
-                name="numeroPlaca"
-                placeholder="Ej. ABC-1234"
-                pattern="[A-Za-z0-9\-]+"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="monto-cobrado">Monto Cobrado ($)</label>
-              <input
-                type="number"
-                id="monto-cobrado"
-                name="montoCobrado"
-                placeholder="0.00"
-                step="0.01"
-                min="0"
-                required
-              />
-            </div>
-
-            <button type="submit" class="btn-guardar">Guardar Cambios</button>
           </div>
         </form>
       </main>
@@ -380,25 +346,74 @@ index.html (Completo) HTML
             <!-- Los siguientes equipos agregarán sus campos aquí -->
 
             <!-- Equipo Ignacio-Zaragoza-1 -->
-            <div class="mb-3">
-              <label for="descripcion" class="form-label"
-                >Descripción del incidente</label
-              >
-              <textarea
-                class="form-control"
-                id="descripcion"
-                rows="3"
-                placeholder="Describe el incidente"
-              ></textarea>
+            <div class="card-form">
+              <h2>Registro de Vehículo</h2>
+
+              <div class="form-group">
+                <label for="numero-placa">Número de Placa</label>
+                <input
+                  type="text"
+                  id="numero-placa"
+                  name="numeroPlaca"
+                  placeholder="Ej. ABC-1234"
+                  pattern="[A-Za-z0-9\-]+"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="monto-cobrado">Monto Cobrado ($)</label>
+                <input
+                  type="number"
+                  id="monto-cobrado"
+                  name="montoCobrado"
+                  placeholder="0.00"
+                  step="0.01"
+                  min="0"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="descripcion" class="form-label"
+                  >Descripción del incidente</label
+                >
+                <textarea
+                  class="form-control"
+                  id="descripcion"
+                  rows="3"
+                  placeholder="Describe el incidente"
+                ></textarea>
+              </div>
+              <div class="d-flex gap-2 flex-lg-row-reverse">
+                <button type="button" class="btn btn-danger" id="liveToastBtn">
+                  Guardar
+                </button>
+                <button type="button" class="btn btn-secondary">
+                  Cancelar
+                </button>
+              </div>
             </div>
 
-            <div class="d-flex gap-2">
-              <button type="button" class="btn btn-danger">Guardar</button>
-              <button type="button" class="btn btn-secondary">Cancelar</button>
-            </div>
             <!-- Espacio para el siguiente equipo -->
           </div>
         </div>
+      </div>
+    </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <img src="..." class="rounded me-2" alt="..." />
+          <strong class="me-auto">Bootstrap</strong>
+          <small>11 mins ago</small>
+          <CloseButton dismiss="toast" />
+        </div>
+        <div class="toast-body">Hello, world! This is a toast message.</div>
       </div>
     </div>
 
@@ -407,5 +422,17 @@ index.html (Completo) HTML
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="snippets.js"></script>
+    <script>
+      const toastTrigger = document.getElementById("liveToastBtn");
+      const toastLiveExample = document.getElementById("liveToast");
+
+      if (toastTrigger) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+        toastTrigger.addEventListener("click", () => {
+          toastBootstrap.show();
+        });
+      }
+    </script>
   </body>
 </html>
