@@ -348,55 +348,62 @@
             <!-- Equipo Ignacio-Zaragoza-1 -->
             <div class="card-form">
               <h2>Registro de Vehículo</h2>
+              <form id="miFormulario" method="post">
+                <div class="form-group">
+                  <label for="numero-placa">Número de Placa</label>
+                  <input
+                    type="text"
+                    id="numero-placa"
+                    name="numeroPlaca"
+                    placeholder="Ej. ABC-1234"
+                    pattern="[A-Za-z0-9\-]+"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="monto-cobrado">Monto Cobrado ($)</label>
+                  <input
+                    type="number"
+                    id="monto-cobrado"
+                    name="montoCobrado"
+                    placeholder="0.00"
+                    step="0.01"
+                    min="100"
+                    max="1000"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="descripcion" class="form-label"
+                    >Descripción del incidente</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="descripcion"
+                    rows="3"
+                    maxlength="500"
+                    placeholder="Describe el incidente"
+                    required
+                  ></textarea>
+                </div>
+                <div class="d-flex gap-2 flex-lg-row-reverse">
+                  <button
+                    type="submit"
+                    class="btn btn-danger"
+                    id="liveToastBtn"
+                  >
+                    Registrar reporte
+                  </button>
 
-              <div class="form-group">
-                <label for="numero-placa">Número de Placa</label>
-                <input
-                  type="text"
-                  id="numero-placa"
-                  name="numeroPlaca"
-                  placeholder="Ej. ABC-1234"
-                  pattern="[A-Za-z0-9\-]+"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="monto-cobrado">Monto Cobrado ($)</label>
-                <input
-                  type="number"
-                  id="monto-cobrado"
-                  name="montoCobrado"
-                  placeholder="0.00"
-                  step="0.01"
-                  min="0"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="descripcion" class="form-label"
-                  >Descripción del incidente</label
-                >
-                <textarea
-                  class="form-control"
-                  id="descripcion"
-                  rows="3"
-                  placeholder="Describe el incidente"
-                ></textarea>
-              </div>
-              <div class="d-flex gap-2 flex-lg-row-reverse">
-                <button type="button" class="btn btn-danger" id="liveToastBtn">
-                  Registrar reporte
-                </button>
-
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Cancelar
-                </button>
-              </div>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancelar
+                  </button>
+                </div>
+              </form>
             </div>
 
             <!-- Espacio para el siguiente equipo -->
@@ -434,17 +441,38 @@
     <script src="snippets.js"></script>
 
     <script>
-      const toastTrigger = document.getElementById("liveToastBtn");
       const toastLiveExample = document.getElementById("liveToast");
+      const toastBootstrap =
+        bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+      const toastTrigger = document.getElementById("liveToastBtn");
 
-      if (toastTrigger && toastLiveExample) {
-        const toastBootstrap =
-          bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+      const miFormulario = document.getElementById("miFormulario");
+      const numero_placa = document.getElementById("numero-placa");
+      const monto_cobrado = document.getElementById("monto-cobrado");
+      const descripcion = document.getElementById("descripcion");
 
-        toastTrigger.addEventListener("click", () => {
-          toastBootstrap.show();
-        });
-      }
+      const modal = document.getElementById("modalReportes");
+      const modalInstancia =
+        bootstrap.Modal.getInstance(modal) || new bootstrap.Modal(modal);
+
+      miFormulario.addEventListener("submit", function (evento) {
+        evento.preventDefault();
+        if (toastTrigger && toastLiveExample) {
+          if (
+            numero_placa.validity.valid &&
+            monto_cobrado.validity.valid &&
+            descripcion.validity.valid
+          ) {
+            modalInstancia.hide();
+            setTimeout(() => {
+              miFormulario.reset();
+            }, 500);
+            setTimeout(() => {
+              toastBootstrap.show();
+            }, 2000);
+          }
+        }
+      });
     </script>
   </body>
 </html>
